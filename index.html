@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="流量卡举报助手 - 自动生成多平台投诉话术，一键直达申诉入口">
+  <title>流量卡举报助手</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563EB',
+            primaryDark: '#1D4ED8',
+            danger: '#DC2626',
+            success: '#16A34A',
+            warm: '#F59E0B',
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang SC"', '"Helvetica Neue"', '"Noto Sans SC"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+  <div id="app" class="max-w-[480px] mx-auto min-h-screen relative bg-white shadow-sm">
+    <!-- Header -->
+    <header id="app-header" class="sticky top-0 z-20 bg-white border-b border-gray-100 px-4 py-3 flex items-center">
+      <button id="btn-back" class="hidden w-9 h-9 -ml-1 flex items-center justify-center rounded-full hover:bg-gray-100 active:bg-gray-200 transition-colors" aria-label="返回">
+        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <h1 id="header-title" class="text-lg font-semibold text-gray-900 flex-1 text-center">流量卡举报助手</h1>
+      <div class="w-8"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="pb-20">
+      <!-- Views rendered here by app.js -->
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav id="bottom-nav" class="fixed bottom-0 left-0 right-0 z-20 bg-white border-t border-gray-100 safe-area-bottom">
+      <div class="max-w-[480px] mx-auto flex">
+        <button class="nav-tab flex-1 flex flex-col items-center py-2 px-3 text-xs text-gray-400 transition-colors" data-view="welcome" data-label="首页">
+          <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <span>首页</span>
+        </button>
+        <button class="nav-tab flex-1 flex flex-col items-center py-2 px-3 text-xs text-gray-400 transition-colors" data-view="form" data-label="投诉">
+          <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+          <span>投诉</span>
+        </button>
+        <button class="nav-tab flex-1 flex flex-col items-center py-2 px-3 text-xs text-gray-400 transition-colors" data-view="history" data-label="记录">
+          <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          <span>记录</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed top-4 left-4 right-4 z-50 pointer-events-none flex flex-col items-center gap-2"></div>
+
+  <!-- Scripts -->
+  <script src="src/services/storage.js"></script>
+  <script src="src/services/detection.js"></script>
+  <script src="src/services/portals.js"></script>
+  <script src="src/services/evidence.js"></script>
+  <script src="src/services/generator.js"></script>
+  <script src="src/views/welcome.js"></script>
+  <script src="src/views/form.js"></script>
+  <script src="src/views/results.js"></script>
+  <script src="src/views/history.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>
